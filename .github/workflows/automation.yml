@@ -13,5 +13,7 @@ jobs:
       - name: Bahamut Automation
         uses: JacobLinCool/Bahamut-Automation@action
         with:
-          modules: "login,ad_handler,sign,report,answer,report,lottery,report,logout,report"
-          parameters: ${{ secrets.parameters }}
+          modules: "report,ad_handler,login,sign,guild,answer,lottery,del_mail,report,telegram,discord,line_notify,issue"
+          secrets: ${{ secrets.SECRETS }}
+          parameters: '{ "lottery_max_parallel": 3, "del_mail_match": [ { "title": "【勇者福利社】成功獲得抽獎資格通知信" } ], "only_failed": true }'
+          
