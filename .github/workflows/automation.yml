@@ -6,12 +6,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  automation:
-    name: 自動化
-    runs-on: macos-latest
-    steps:
-      - name: Bahamut Automation
-        uses: JacobLinCool/Bahamut-Automation@action
-        with:
-          modules: "login_v2,ad_handler,sign,report,answer,report,lottery,report,logout,report"
-          parameters: ${{ secrets.parameters }}
+    automation:
+        name: 自動化
+        runs-on: macos-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: gautamkrishnar/keepalive-workflow@master
+            - name: Bahamut Automation
+              uses: JacobLinCool/Bahamut-Automation@action
+              with:
+                  config: "config.yml"
+                  secrets: ${{ secrets.secrets }}
+                  
